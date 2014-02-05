@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.bonitasoft.tools.gwt.jetty;
+package org.bonitasoft.web.tools.jetty;
 
 import java.io.File;
 import java.io.IOException;
