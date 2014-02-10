@@ -11,6 +11,7 @@
     
     <scm>
         <connection>scm:git:git://github.com/bonitasoft/bonita-web-devtools.git</connection>
+        <tag>HEAD</tag>
     </scm>
     
 	<dependencies>
