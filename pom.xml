@@ -10,7 +10,7 @@
 	<name>GWT compilation tools</name>
     
     <scm>
-        <connection>scm:git:git://github.com/bonitasoft/bonita-web-devtools.git</connection>
+        <connection>scm:git:git@github.com:bonitasoft/bonita-web-devtools.git</connection>
         <tag>HEAD</tag>
     </scm>
     
