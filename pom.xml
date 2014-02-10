@@ -8,7 +8,11 @@
 	<packaging>jar</packaging>
 
 	<name>GWT compilation tools</name>
-
+    
+    <scm>
+        <connection>scm:git:git://github.com/bonitasoft/bonita-web-devtools</connection>
+    </scm>
+    
 	<dependencies>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
