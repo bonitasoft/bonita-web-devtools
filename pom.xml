@@ -6,7 +6,7 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>GWT compilation tools</name>
+	<name>bonita web development tools</name>
     
     <scm>
         <connection>scm:git:git@github.com:bonitasoft/bonita-web-devtools.git</connection>
