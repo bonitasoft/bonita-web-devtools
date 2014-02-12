@@ -18,9 +18,9 @@ package org.bonitasoft.web.tools.jetty;
 
 import java.io.File;
 
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.webapp.WebAppContext;
-import org.mortbay.xml.XmlConfiguration;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.xml.XmlConfiguration;
 
 import com.google.gwt.core.ext.TreeLogger;
 
@@ -35,16 +35,14 @@ import com.google.gwt.core.ext.TreeLogger;
 public class BonitaJettyLauncher extends JettyLauncher {
 
     /** get the JNDI ENC (ie: JNDI URLs starting with java:comp/) configured in Jetty */
-    private final static String[] WEBAPPCONTEXT_CONFIGURATION_CLASSES = {
-            "org.mortbay.jetty.webapp.WebInfConfiguration",
-            "org.mortbay.jetty.webapp.JettyWebXmlConfiguration",
-            "org.mortbay.jetty.plus.webapp.EnvConfiguration",
-            "org.mortbay.jetty.plus.webapp.Configuration",
-    };
+    private final static String[] WEBAPPCONTEXT_CONFIGURATION_CLASSES = { "org.eclipse.jetty.webapp.WebInfConfiguration",
+            "org.eclipse.jetty.webapp.WebXmlConfiguration", "org.eclipse.jetty.webapp.MetaInfConfiguration", "org.eclipse.jetty.webapp.FragmentConfiguration",
+            "org.eclipse.jetty.plus.webapp.EnvConfiguration", "org.eclipse.jetty.plus.webapp.PlusConfiguration",
+            "org.eclipse.jetty.annotations.AnnotationConfiguration", "org.eclipse.jetty.webapp.JettyWebXmlConfiguration", };
 
     @Override
-    protected WebAppContext createWebAppContext(TreeLogger logger, File appRootDir) {
-        WebAppContext webAppContext = super.createWebAppContext(logger, appRootDir);
+    protected WebAppContext createWebAppContext(final TreeLogger logger, final File appRootDir) {
+        final WebAppContext webAppContext = super.createWebAppContext(logger, appRootDir);
         webAppContext.setConfigurationClasses(WEBAPPCONTEXT_CONFIGURATION_CLASSES);
         return webAppContext;
     }
@@ -53,11 +51,11 @@ public class BonitaJettyLauncher extends JettyLauncher {
      * Load jetty.xml to configure server
      */
     @Override
-    protected void configureServer(Server server, File appRootDir) throws Exception {
-        File jettyXml = new File(appRootDir, "WEB-INF/jetty.xml");
+    protected void configureServer(final Server server, final File appRootDir) throws Exception {
+        final File jettyXml = new File(appRootDir, "WEB-INF/jetty.xml");
         if (jettyXml.exists()) {
             System.out.println("loading " + jettyXml.getAbsolutePath());
-            XmlConfiguration configuration = new XmlConfiguration(jettyXml.toURI().toURL());
+            final XmlConfiguration configuration = new XmlConfiguration(jettyXml.toURI().toURL());
             configuration.configure(server);
         }
     }
