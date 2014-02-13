@@ -58,6 +58,7 @@ import com.google.gwt.dev.util.Util;
  * Copy of class {@link com.google.gwt.dev.shell.jetty.JettyLauncher}
  * 
  * add {@link #configureServer(Server)} method to be overidden and called before starting jetty server
+ * modify the constructor of WebAppClassLoaderExtension according to https://code.google.com/p/google-web-toolkit/issues/detail?id=8526
  * 
  * @author Colin PUY
  */
@@ -374,7 +375,9 @@ public class JettyLauncher extends ServletContainerLauncher {
             private static final String META_INF_SERVICES = "META-INF/services/";
 
             public WebAppClassLoaderExtension() throws IOException {
-                super(bootStrapOnlyClassLoader, WebAppContextWithReload.this);
+                // modify the constructor according to https://code.google.com/p/google-web-toolkit/issues/detail?id=8526
+                // super(bootStrapOnlyClassLoader, WebAppContextWithReload.this);
+                super(WebAppContextWithReload.this);
             }
 
             @Override
